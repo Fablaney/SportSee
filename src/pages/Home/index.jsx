@@ -8,7 +8,7 @@ function Home()
 
             <Footer></Footer>
 
-            <div className='container test'>
+            <div className='container-xl test'>
                 <div className="test">
                     <h1 className=''>Bonjour Thomas</h1>
                     <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
