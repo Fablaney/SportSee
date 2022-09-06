@@ -1,0 +1,31 @@
+.banner
+{
+    height: 223px;
+    margin-top: 100px;
+    margin-bottom: 43px;
+    border-radius: 25px;
+
+    background: rgba(0, 0, 0, 0.3);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: darken;
+
+    @media (max-width: 768px)
+    {
+        
+    }
+}
+
+
+.accordion-about
+{
+    max-width: 80%;
+    margin: auto;
+}
+@media (max-width: 768px)
+{
+    .accordion-about
+    {
+        max-width: 100%;
+    }  
+}

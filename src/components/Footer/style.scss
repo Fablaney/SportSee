@@ -1,0 +1,38 @@
+footer
+{
+    width: 117px;
+    height: 100vh;
+    z-index: -100;
+    background-color: #020203;
+    position: relative;
+
+    @media (max-width: 768px)
+    {
+      
+    }
+}
+.icones
+{
+    width: 64px;
+    padding-bottom: 20px;
+
+    @media (max-width: 768px)
+    {
+      
+    }
+}
+.copyright
+{
+    position: absolute;
+    bottom: 15%;
+    width: 200px;
+    color: white;
+    font-size: 12px;
+
+    transform: rotate(-90deg);
+
+    @media (max-width: 768px)
+    {
+        
+    }
+}

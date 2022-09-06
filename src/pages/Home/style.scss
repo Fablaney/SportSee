@@ -1,0 +1,30 @@
+.banner-home
+{
+    height: 223px;
+    margin-top: 100px;
+    margin-bottom: 43px;
+    border-radius: 25px;
+
+    background: rgba(0, 0, 0, 0.3) url('../../assets/logo.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: darken;
+
+    @media (max-width: 768px)
+    {
+        margin-top: 50px;
+        height: 111px;
+    }
+}
+.banner-text
+{
+    font-size: 48px;
+    color: white;
+    width: 100%;
+
+    @media (max-width: 768px)
+    {
+        width: 217px;
+        font-size: 24px;
+    }
+}
