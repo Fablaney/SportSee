@@ -10,7 +10,7 @@ function Header()
             <nav className='w-100 d-flex justify-content-around align-items-center'>
 
                 <Link className='nav-link' to="/">
-                    <img className='homelogo' src={Logo} alt="" />
+                    <img className='Accueillogo' src={Logo} alt="" />
                 </Link>
 
                 <Link className='nav-link' to="/">

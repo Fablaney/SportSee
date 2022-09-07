@@ -4,7 +4,7 @@ import Footer from "../../components/Footer"
 function Reglages()
 {
     return (
-        <div className="d-flex">
+        <div className="d-flex align-items-center">
 
             <Footer></Footer>
 
