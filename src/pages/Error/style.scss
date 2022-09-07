@@ -1,18 +1,6 @@
-.error-container
-{
-    color: #FF6060;
-    text-align: center;
-    padding-top: 100px;
-
-    @media (max-width: 768px)
-    {
-        padding-top: 90px;
-    }
-}
 .error-number
 {
-    font-size: 288px;
-    font-weight: 700;
+    font-size: 200px;
     margin-bottom: 66px;
 
     @media (max-width: 768px)
@@ -23,8 +11,7 @@
 }
 .error-title
 {
-     font-size: 36px;
-    font-weight: 500;
+    font-size: 36px;
     margin-bottom: 182px;
 
     @media (max-width: 768px)
@@ -35,9 +22,7 @@
 }
 .error-link
 {
-    font-size: 18px;
-    font-weight: 500;
-    color: #FF6060;
+    font-size: 20px;
     padding-bottom: 29px;
 
     @media (max-width: 768px)

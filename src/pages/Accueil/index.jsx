@@ -2,7 +2,6 @@ import { Link } from "react-router-dom"
 
 // import perso
 import "./style.scss"
-import Footer from "../../components/Footer"
 
 // datas
 import { USER_MAIN_DATA }  from "../../api/data.js"
@@ -17,7 +16,7 @@ function Accueil()
     return (
         <div className="d-flex align-items-center">
 
-            <Footer></Footer>
+            <div className="vertical-spacer"></div>
 
             <div className='container-xl'>
 

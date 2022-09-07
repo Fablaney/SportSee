@@ -16,7 +16,7 @@ import Error from './pages/Error';
 
 // composants
 import Header from "./components/Header";
-// import Footer from "./components/Footer";
+import Footer from "./components/Footer";
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 
@@ -25,6 +25,10 @@ root.render(
 
         <Header/>
 
+        <Footer/>
+        
+        <div className="horizontal-sapcer"></div>
+        
         <Routes>
 
             <Route path="/" element={<Accueil />} />

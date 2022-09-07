@@ -2,7 +2,6 @@ import { useParams } from "react-router-dom"
 
 // import perso
 import "./style.scss"
-import Footer from "../../components/Footer"
 import Dashboard from "../../components/Dashboard"
 
 function Profil()
@@ -13,9 +12,7 @@ function Profil()
     return (
         <div className="d-flex align-items-center">
 
-            <Footer></Footer>
-
-            <div className='container-xl'>
+            <div className='container-xl mt-5'>
 
                 <h1 className=''>Profil</h1>
 

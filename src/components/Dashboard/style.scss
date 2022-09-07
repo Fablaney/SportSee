@@ -1,0 +1,57 @@
+.titre-dashboard
+{
+    font-size: 48px;
+    
+    .firstname
+    {
+        color: #FF0101;
+    }
+}
+
+// partie gauche
+.graphique
+{
+    height: 320px;
+}
+.donnes
+{
+
+}
+.donnes > div
+{
+    height: 263px;
+}
+// colonne calories, proteines, glucides, lipides
+.colonne-droite
+{
+
+}
+.colonne-droite > div
+{
+    height: 124px;
+    background-color: #FBFBFB;
+    border-radius: 10px;
+
+    .bi-fire
+    {
+        color: #FF0000;
+    }
+}
+.colonne-droite > div >img
+{
+    height: 60px;
+}
+.count
+{
+    font-size: 20px;
+    color: #282D30;
+    line-height: 24px;
+}
+.type
+{
+    color: #74798C;
+    font-size: 14px;
+    line-height: 24px;
+}
+
+

@@ -1,13 +1,10 @@
 import { Link } from "react-router-dom"
-import Footer from "../../components/Footer"
 import "./style.scss"
 
 function Error()
 {
     return (
         <div className="d-flex align-items-center">
-
-            <Footer></Footer>
        
             <div className="container text-center">
           
