@@ -1,12 +1,15 @@
-import React from "react";
-import calories from '../../assets/calories-icon.png'
-import proteines from '../../assets/proteines-icon.png'
-import glucides from '../../assets/glucides-icon.png'
-import lipides from '../../assets/lipides-icon.png'
-// import { useParams } from "react-router-dom"
+import React from "react"
+
+// import charts
+import BarAnalytics from "../BarAnalytics"
+import LineAnalytic from "../LineAnalytic"
+import PerformanceAnalitic from "../PerformanceAnalitic"
+import PieAnalytics from "../PieAnalytics"
+
 
 // import perso
 import "./style.scss"
+import Informations from "../Informations"
 
 // datas
 import { USER_MAIN_DATA, USER_ACTIVITY, USER_AVERAGE_SESSIONS, USER_PERFORMANCE }  from "../../api/data.js"
@@ -14,100 +17,72 @@ import { USER_MAIN_DATA, USER_ACTIVITY, USER_AVERAGE_SESSIONS, USER_PERFORMANCE 
 function Dashboard({id})
 {
     // Je récupere les datas de l'user dont l'id est == id
-    let currentUserMainDatas = USER_MAIN_DATA.find((user) => user.id == id)
-    let currentUserActivity = USER_ACTIVITY.find((user) => user.userId == id)
-    let currentUserAverageSessions = USER_AVERAGE_SESSIONS.find((user) => user.userId == id)
-    let currentUserPerformance = USER_PERFORMANCE.find((user) => user.userId == id)
+    let UserMainDatas = USER_MAIN_DATA.find((user) => user.id == id)
+    let UserActivity = USER_ACTIVITY.find((user) => user.userId == id)
+    let UserAverageSessions = USER_AVERAGE_SESSIONS.find((user) => user.userId == id)
+    let UserPerformance = USER_PERFORMANCE.find((user) => user.userId == id)
 
-    // console.log(currentUserMainDatas)
-    // console.log(currentUserActivity)
-    // console.log(currentUserAverageSessions)
-    // console.log(currentUserPerformance)
+    // console.log(UserMainDatas)
+    // console.log(UserActivity)
+    // console.log(UserAverageSessions)
+    // console.log(UserPerformance)
 
-    // const house = Data.find((item) => item.id === id)
+    console.log( )
 
     return (
-        <div className="test">
+        <div className="">
 
-            <h1 className='titre-dashboard mb-5'>Bonjour <span className="firstname">{currentUserMainDatas.userInfos.firstName}</span></h1>
+            <h1 className='titre-dashboard mb-5'>Bonjour <span className="firstname">{UserMainDatas.userInfos.firstName}</span></h1>
 
             <p className="mb-5">Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
 
-            {/* layaout */}
             <div className="row">
 
                 {/* block gauche */}
                 <div className="col-9">
 
-                    {/* graphique */}
-                    <div className="graphique mb-5 p-4 test ">
-
+                    {/* graphique barres */}
+                    <div className="graphique mb-5 p-4">
+               
                         <div className="d-flex">
                             <div className="me-auto">Activité quotidienne</div>
-                            <div className="pr-2">Poids (kg)</div>
-                            <div>Calories brûlées (kCal)</div>
+                            <div className="px-3  d-flex align-items-center"><div className="point-rouge"></div>&nbsp; Poids (kg)</div>
+                            <div className="d-flex align-items-center"><div className="point-noir"></div>&nbsp; Calories brûlées (kCal)</div>
                         </div>
+
+                        {/* bars */}
+                        <BarAnalytics datas={UserActivity}></BarAnalytics>
 
                     </div>
 
                     {/* 3 blocks */}
-                    <div className="d-flex justify-content-between donnes">
-                        <div className="col test">courbe</div>
-                        <div className="col test">hexagone</div>
-                        <div className="col test">score</div>
+                    <div className="d-flex justify-content-between donnes gap-4">
+
+                        {/* line */}
+                        <div className="col rounded line-box">
+
+                            <div className='line-text'>Durée moyenne des sessions</div>
+
+                            <LineAnalytic datas={UserAverageSessions}></LineAnalytic>
+
+                        </div>
+
+                        {/* radar */}
+                        <div className="col rounded radar">
+                            <PerformanceAnalitic datas={UserPerformance}></PerformanceAnalitic>
+                        </div>
+
+                        {/* radial bar */}
+                        <div className="col rounded kpi">
+                            <PieAnalytics datas={UserMainDatas}></PieAnalytics>
+                        </div>
+
                     </div>
 
                 </div>
 
                 {/* bloc droit */}
-                {/* colonne 4 données */}
-                <div className="col-3 colonne-droite">
-
-                    <div className="d-flex justify-content-evenly align-items-center mb-5">
-
-                        <img className="" src={calories} alt="" />
-
-                        <div>
-                            <div className="count">{currentUserMainDatas.keyData.calorieCount} kCal</div>
-                            <div className="type">Calories</div>
-                        </div>
-
-                    </div>
-
-                    <div className="d-flex justify-content-evenly align-items-center mb-5">
-
-                        <img className="" src={proteines} alt="" />
-
-                        <div>
-                            <div className="count">{currentUserMainDatas.keyData.proteinCount} g</div>
-                            <div className="type">Proteines</div>
-                        </div>
-
-                    </div>
-
-                    <div className="d-flex justify-content-evenly align-items-center mb-5">
-
-                        <img className="" src={glucides} alt="" />
-
-                        <div>
-                            <div className="count">{currentUserMainDatas.keyData.carbohydrateCount} g</div>
-                            <div className="type">Glucides</div>
-                        </div>
-                        
-                    </div>
-
-                    <div className="d-flex justify-content-evenly align-items-center mb-5">
-
-                        <img className="" src={lipides} alt="" />
-
-                        <div>
-                            <div className="count">{currentUserMainDatas.keyData.lipidCount} g</div>
-                            <div className="type">Lipides</div>
-                        </div>
-                        
-                    </div>
-                    
-                </div>
+                <Informations datas={UserMainDatas}></Informations>
                 
             </div>
         </div>

@@ -12,7 +12,7 @@ function Profil()
     return (
         <div className="d-flex align-items-center">
 
-            <div className='container-xl mt-5'>
+            <div className='container-xl'>
 
                 <h1 className=''>Profil</h1>
 

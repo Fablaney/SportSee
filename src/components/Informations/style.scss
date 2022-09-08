@@ -1,0 +1,23 @@
+// colonne calories, proteines, glucides, lipides
+.colonne-droite > div
+{
+    height: 124px;
+    background-color: #FBFBFB;
+    border-radius: 10px;
+}
+.colonne-droite > div >img
+{
+    height: 60px;
+}
+.count
+{
+    font-size: 20px;
+    color: #282D30;
+    line-height: 24px;
+}
+.type
+{
+    color: #74798C;
+    font-size: 14px;
+    line-height: 24px;
+}
