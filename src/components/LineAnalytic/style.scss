@@ -1,8 +1,9 @@
 .line-box
 {
     position: relative;
-    background: rgb(255,0,0);
-    background: linear-gradient(90deg, rgba(255,0,0,1) 0%, rgba(255,0,0,1) 75%, rgba(220,0,0,1) 75%);
+    // background: rgb(255,0,0);
+    // background: linear-gradient(90deg, rgba(255,0,0,1) 0%, rgba(255,0,0,1) 75%, rgba(220,0,0,1) 75%);
+    background-color: grey;
 
 }
 .line-text
@@ -13,7 +14,7 @@
     z-index: 10;
     color: rgba($color: white, $alpha: 0.5);
 }
-.LineChart
+.label-line
 {
-    // background-color: red;
+    color: wheat;
 }

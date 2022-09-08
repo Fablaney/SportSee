@@ -2,7 +2,7 @@
 import React from 'react'
 
 // iùport Recharts
-import { PieChart, Pie, Sector, Cell, ResponsiveContainer } from 'recharts';
+import { PieChart, Pie, Sector, Cell, ResponsiveContainer, Label } from 'recharts';
 
 // import perso
 import "./style.scss"
@@ -55,6 +55,9 @@ function PieAnalytics({datas})
                     startAngle={180}
                     endAngle={-360}
                 >
+
+                    {/* <Label value={labelChild} className='label-line' position="center"></Label> */}
+
                     {
                         data.map((entry, index) => (
                             <Cell

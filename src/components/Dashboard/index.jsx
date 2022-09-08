@@ -61,7 +61,7 @@ function Dashboard({id})
                         {/* line */}
                         <div className="col rounded line-box">
 
-                            <div className='line-text'>Durée moyenne des sessions</div>
+                            {/* <div className='line-text'>Durée moyenne des sessions</div> */}
 
                             <LineAnalytic datas={UserAverageSessions}></LineAnalytic>
 

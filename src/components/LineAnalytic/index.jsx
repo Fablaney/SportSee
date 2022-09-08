@@ -9,6 +9,9 @@ import "./style.scss"
 
 function LineAnalytic({datas})
 {
+
+
+
     return (
         <div className="analityc-box">
 
@@ -30,8 +33,7 @@ function LineAnalytic({datas})
 
                     {/* <YAxis /> */}
                    
-                   
-                    <Label>Durée moyenne des sessions</Label>
+                    <Label className='label-line' offset={0} position="insideTopLeft">Durée moyenne des sessions</Label>
 
                     <Tooltip />
 
