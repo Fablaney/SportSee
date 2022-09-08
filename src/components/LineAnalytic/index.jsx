@@ -2,7 +2,7 @@
 import React from 'react'
 
 // iùport Recharts
-import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts'
+import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, Label } from 'recharts'
 
 // import perso
 import "./style.scss"
@@ -29,6 +29,9 @@ function LineAnalytic({datas})
                     <XAxis dataKey="day" />
 
                     {/* <YAxis /> */}
+                   
+                   
+                    <Label>Durée moyenne des sessions</Label>
 
                     <Tooltip />
 

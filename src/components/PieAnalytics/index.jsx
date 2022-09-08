@@ -13,45 +13,54 @@ function PieAnalytics({datas})
 
     console.log(datas.score || datas.todayScore)
     
+    // je récupere le score et je sort un % de 0 à 100
     let score = datas.score * 100 || datas.todayScore * 100
-    console.log(score)
 
+    // je crée l'opposé du score de 100 à 0
     let antiScore = 100 - score
-    console.log(antiScore)
-
-    // const data = [
-    //     { name: 'A1', value: score},
-    //     { value: antiScore },
-    
-    // ];
-
+  
+    // je crée un tableau avec le % de l'utilisateur et sa différence
     const data = [
         { name: "Group A", value: score },
-        { name: "Group B", value: antiScore },
-        
+        { name: "Group B", value: antiScore }
       ]
 
-    const COLORS = ["#FF0000", "#FFF"]
+    // couleur rouge et couleur gris clair
+    const COLORS = ["#FF0000", "#FBFBFB"]
 
-    // UserMainDatas.todayScore * 100 || UserMainDatas.score * 100
     return (
         <div className="h-100 analityc-box">
+
+            <div className='scrore-title'>Score</div>
+
+            <div className='scrore-count'>
+
+                <div className='score-percent'>{score} %</div>
+                <div className='score-text'>
+                    de votre
+                    <br/>
+                    objectif
+                </div>
+
+            </div>
 
             <PieChart width={300} height={300}>
 
                 <Pie
                     data={data}
-                    cx={120}
-                    cy={200}
-                    innerRadius={60}
-                    outerRadius={80}
-                    fill="#8884d8"
-                    paddingAngle={5}
+                    innerRadius={85}
+                    outerRadius={100}
+                    paddingAngle={0}
                     dataKey="value"
+                    startAngle={180}
+                    endAngle={-360}
                 >
                     {
                         data.map((entry, index) => (
-                            <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                            <Cell
+                                key={`cell-${index}`}
+                                fill={COLORS[index % COLORS.length]}
+                            />
                         ))
                     }
                 </Pie>

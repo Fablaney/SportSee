@@ -33,7 +33,7 @@ function BarAnalytics({datas})
 
                     {/* <Legend /> */}
 
-                    <Bar dataKey="kilogram" fill="#282D30" />
+                    <Bar dataKey="kilogram" fill="#282D30"/>
                     <Bar dataKey="calories" fill="#E60000" />
 
                 </BarChart>

@@ -1,4 +1,25 @@
-.bar-box
+.scrore-title
 {
-    height: 100%;
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    font-size: 15px;  
 }
+.scrore-count
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    .score-percent
+    {
+        font-size: 18px;
+    }
+    .score-text
+    {
+        font-size: 12px;
+        color: grey;
+    }
+}
+
