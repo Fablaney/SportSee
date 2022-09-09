@@ -51,7 +51,7 @@ function Dashboard({id})
                         </div>
 
                         {/* bars */}
-                        <BarAnalytics datas={UserActivity}></BarAnalytics>
+                        <BarAnalytics id={id} ></BarAnalytics>
 
                     </div>
 
