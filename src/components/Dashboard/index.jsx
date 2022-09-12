@@ -1,4 +1,8 @@
-import React from "react"
+// import charts
+import React, {useState, useEffect} from 'react'
+
+// lecture des données
+import axios from 'axios'
 
 // import charts
 import BarAnalytics from "../BarAnalytics"
@@ -6,33 +10,56 @@ import LineAnalytic from "../LineAnalytic"
 import PerformanceAnalitic from "../PerformanceAnalitic"
 import PieAnalytics from "../PieAnalytics"
 
-
 // import perso
 import "./style.scss"
 import Informations from "../Informations"
 
 // datas
-import { USER_MAIN_DATA, USER_ACTIVITY, USER_AVERAGE_SESSIONS, USER_PERFORMANCE }  from "../../api/data.js"
+// import { USER_MAIN_DATA, USER_ACTIVITY, USER_AVERAGE_SESSIONS, USER_PERFORMANCE }  from "../../api/data.js"
 
 function Dashboard({id})
 {
+    // j'initialise un state data et state data met à jour datas
+    const [userDatas, setDatas] = useState({})
+
+    const [isLoading, setLoading] = useState(true)
+
+    useEffect(()=> {
+        axios.get('http://localhost:3000/user/'+ id).then( function(response)
+        {
+            // console.log(response.data.data)
+
+            setDatas({...response.data.data})
+
+            // console.log(userDatas)
+
+            setLoading(false)
+
+            console.log(isLoading)
+        })
+    }, [])
+
     // Je récupere les datas de l'user dont l'id est == id
-    let UserMainDatas = USER_MAIN_DATA.find((user) => user.id == id)
-    let UserActivity = USER_ACTIVITY.find((user) => user.userId == id)
-    let UserAverageSessions = USER_AVERAGE_SESSIONS.find((user) => user.userId == id)
-    let UserPerformance = USER_PERFORMANCE.find((user) => user.userId == id)
+    // let UserMainDatas = USER_MAIN_DATA.find((user) => user.id == id)
+    // let UserActivity = USER_ACTIVITY.find((user) => user.userId == id)
+    // let UserAverageSessions = USER_AVERAGE_SESSIONS.find((user) => user.userId == id)
+    // let UserPerformance = USER_PERFORMANCE.find((user) => user.userId == id)
 
     // console.log(UserMainDatas)
     // console.log(UserActivity)
     // console.log(UserAverageSessions)
     // console.log(UserPerformance)
 
-    console.log( )
+    // console.log("userDatas")
+    // console.log(userDatas)
 
     return (
         <div className="">
-
-            <h1 className='titre-dashboard mb-5'>Bonjour <span className="firstname">{UserMainDatas.userInfos.firstName}</span></h1>
+            {
+                isLoading === true ? <div className="chargement">Chargement</div>
+                :
+                <h1 className='titre-dashboard mb-5'>Bonjour <span className="firstname">{userDatas.userInfos.firstName}</span></h1>
+            }
 
             <p className="mb-5">Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
 
@@ -59,22 +86,24 @@ function Dashboard({id})
                     <div className="d-flex justify-content-between donnes gap-4">
 
                         {/* line */}
-                        <div className="col rounded line-box">
+                        <div className="col-4 rounded line-box">
 
                             {/* <div className='line-text'>Durée moyenne des sessions</div> */}
 
-                            <LineAnalytic datas={UserAverageSessions}></LineAnalytic>
+                            <LineAnalytic id={id}></LineAnalytic>
 
                         </div>
 
                         {/* radar */}
-                        <div className="col rounded radar">
-                            <PerformanceAnalitic datas={UserPerformance}></PerformanceAnalitic>
+                        <div className="col-4 rounded radar">
+                            <PerformanceAnalitic id={id}></PerformanceAnalitic>
                         </div>
 
                         {/* radial bar */}
-                        <div className="col rounded kpi">
-                            <PieAnalytics datas={UserMainDatas}></PieAnalytics>
+                        <div className="col-4 rounded kpi">
+                           
+                            <PieAnalytics id={id}></PieAnalytics>
+                            
                         </div>
 
                     </div>
@@ -82,8 +111,12 @@ function Dashboard({id})
                 </div>
 
                 {/* bloc droit */}
-                <Informations datas={UserMainDatas}></Informations>
-                
+                {
+                    isLoading === true ? <div className="chargement">Chargement</div>
+                    :
+                    <Informations datas={userDatas}></Informations>
+                }
+
             </div>
         </div>
     )

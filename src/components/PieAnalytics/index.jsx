@@ -1,20 +1,39 @@
 // import charts
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 
-// iùport Recharts
+// lecture des données
+import axios from 'axios'
+
+// import Recharts
 import { PieChart, Pie, Sector, Cell, ResponsiveContainer, Label } from 'recharts';
 
 // import perso
 import "./style.scss"
 
-
-function PieAnalytics({datas})
+function PieAnalytics({id})
 {
+    // j'initialise un state data et state data met à jour datas
+    const [userDatas, setDatas] = useState({})
 
-    console.log(datas.score || datas.todayScore)
-    
+    const [isLoading, setLoading] = useState(true)
+
+    useEffect(()=> {
+        axios.get('http://localhost:3000/user/'+ id).then( function(response)
+        {
+            // console.log(response.data.data)
+
+            setDatas({...response.data.data})
+
+            // console.log(userDatas)
+
+            setLoading(false)
+
+            // console.log(isLoading)
+        })
+    }, [])
+
     // je récupere le score et je sort un % de 0 à 100
-    let score = datas.score * 100 || datas.todayScore * 100
+    let score = userDatas.score * 100 || userDatas.todayScore * 100
 
     // je crée l'opposé du score de 100 à 0
     let antiScore = 100 - score
@@ -44,32 +63,36 @@ function PieAnalytics({datas})
 
             </div>
 
-            <PieChart width={300} height={300}>
+            {
+                isLoading === true ? <div className="chargement">Chargement</div>
+                :
+                <PieChart width={300} height={300}>
 
-                <Pie
-                    data={data}
-                    innerRadius={85}
-                    outerRadius={100}
-                    paddingAngle={0}
-                    dataKey="value"
-                    startAngle={180}
-                    endAngle={-360}
-                >
+                    <Pie
+                        data={data}
+                        innerRadius={85}
+                        outerRadius={100}
+                        paddingAngle={0}
+                        dataKey="value"
+                        startAngle={180}
+                        endAngle={-360}
+                    >
 
-                    {/* <Label value={labelChild} className='label-line' position="center"></Label> */}
+                        {/* <Label value={labelChild} className='label-line' position="center"></Label> */}
 
-                    {
-                        data.map((entry, index) => (
-                            <Cell
-                                key={`cell-${index}`}
-                                fill={COLORS[index % COLORS.length]}
-                            />
-                        ))
-                    }
-                </Pie>
-              
-            </PieChart>
-        
+                        {
+                            data.map((entry, index) => (
+                                <Cell
+                                    key={`cell-${index}`}
+                                    fill={COLORS[index % COLORS.length]}
+                                />
+                            ))
+                        }
+                    </Pie>
+                
+                </PieChart>
+            }
+
         </div>
     )
 }

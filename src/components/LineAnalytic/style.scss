@@ -1,20 +1,40 @@
-.line-box
+.container-averageSessionsChart
 {
-    position: relative;
-    // background: rgb(255,0,0);
-    // background: linear-gradient(90deg, rgba(255,0,0,1) 0%, rgba(255,0,0,1) 75%, rgba(220,0,0,1) 75%);
-    background-color: grey;
-
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	background: #ff0000;
+	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0212249);
+	border-radius: 5px;
 }
-.line-text
+.average-session-title
 {
-    position: absolute;
-    left: 10%;
-    top: 10%;
-    z-index: 10;
-    color: rgba($color: white, $alpha: 0.5);
+	position: absolute;
+    top: 15%;
+    left: 15%;
+    right: 30%;
+	font-size: 15px;
+	color: rgba(255, 255, 255, 0.5);
 }
-.label-line
+.days
 {
-    color: wheat;
+	position: absolute;
+	bottom:1rem;
+}
+.days span
+{
+	color: rgba(255, 255, 255, 0.5);
+	margin: 1rem;
+}
+.averageSessionsTooltip
+{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 39px;
+	height: 25px;
+	font-size: 7px;
+	background: #fff;
+	color: #000;
 }

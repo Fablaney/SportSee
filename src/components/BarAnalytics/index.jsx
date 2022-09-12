@@ -1,18 +1,19 @@
 // import charts
 import React, {useState, useEffect} from 'react'
 
+// lecture des données
 import axios from 'axios'
 
-// iùport Recharts
-import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+// import Recharts
+import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 // import perso
 import "./style.scss"
 
-function BarAnalytics({ id})
+function BarAnalytics({ id })
 {
     // j'initialise un state data et state data met à jour datas
-    const [datas, setDatas] = useState({})
+    const [activity, setDatas] = useState({})
 
     const [isLoading, setLoading] = useState(true)
 
@@ -23,24 +24,37 @@ function BarAnalytics({ id})
 
             setDatas({...response.data.data})
 
-            console.log(datas)
-            // console.log(isLoading)
+            // console.log(activity)
+
             setLoading(false)
 
-            console.log(isLoading)
+            // console.log(isLoading)
         })
     }, [])
-    
+
+    const CustomTooltipActivity = ({ active, payload }) => {
+        if (active && payload && payload.length)
+        {
+            return (
+                <div className='custom-tooltip-activity py-3 px-2'>
+                    <div> {`${payload[0].value}kg`}</div>
+                    <div> {`${payload[1].value}kCal`}</div>
+                </div>
+            )
+        }
+        return null
+    }
+
     return (     
         <div className="bar-box">
             {
-                isLoading === true ? <div>Chargement</div>
+                isLoading === true ? <div className="chargement">Chargement</div>
                 :
                 <ResponsiveContainer width="100%" height="100%">
                     <BarChart
-                        width={500}
-                        height={300}
-                        data={datas.sessions}
+                        width='50%'
+                        height='50%'
+                        data={activity.sessions}
                         margin={{
                             top: 40,
                             right: 10,
@@ -48,27 +62,51 @@ function BarAnalytics({ id})
                             bottom: 10,
                         }}
                     >
-                        <CartesianGrid strokeDasharray="1 1" />
-                        <XAxis dataKey="day" />
+                        <CartesianGrid strokeDasharray="3 3" />
 
-                        <YAxis />
+                        <XAxis dataKey="" />
 
-                        <Tooltip />
+                        <YAxis
+                            yAxisId='kg'
+                            datakey='kilogram'
+                            orientation='right'
+                            axisLine={false}
+                            tickLine={false}
+                            tickCount={3}
+                        />
 
-                        {/* <Legend /> */}
+                        <YAxis
+                            yAxisId='cal'
+                            datakey='calories'
+                            orientation='false'
+                            axisLine={false}
+                            tickLine={false}
+                            hide={true}
+                        />
+                    
+                        <Tooltip content={<CustomTooltipActivity />} />
 
-                        <Bar dataKey="kilogram" fill="#282D30"/>
-                        <Bar dataKey="calories" fill="#E60000" />
+                        <Bar
+                            className='activity-bars'
+                            dataKey="kilogram"
+                            barSize={7}
+                            radius={[50, 50, 0, 0]}
+                            yAxisId='kg'
+                            fill="#282D30"/>
+                        <Bar
+                            className='activity-bars'
+                            dataKey="calories"
+                            barSize={7}
+                            radius={[50, 50, 0, 0]}
+                            yAxisId='cal'
+                            fill="#E60000" />
 
                     </BarChart>
                 </ResponsiveContainer>
             }
-            
-                            
+              
         </div>
     )
-    
-   
 }
 
 export default BarAnalytics
