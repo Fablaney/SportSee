@@ -14,9 +14,7 @@ function Accueil()
     // })
 
     return (
-        <div className="d-flex align-items-center">
-
-            <div className="vertical-spacer"></div>
+        <div className="d-flex align-items-center page">
 
             <div className='container-xl'>
 

@@ -13,6 +13,7 @@ import PieAnalytics from "../PieAnalytics"
 // import perso
 import "./style.scss"
 import Informations from "../Informations"
+import Loader from '../Loader'
 
 // datas
 // import { USER_MAIN_DATA, USER_ACTIVITY, USER_AVERAGE_SESSIONS, USER_PERFORMANCE }  from "../../api/data.js"
@@ -39,34 +40,23 @@ function Dashboard({id})
         })
     }, [])
 
-    // Je récupere les datas de l'user dont l'id est == id
-    // let UserMainDatas = USER_MAIN_DATA.find((user) => user.id == id)
-    // let UserActivity = USER_ACTIVITY.find((user) => user.userId == id)
-    // let UserAverageSessions = USER_AVERAGE_SESSIONS.find((user) => user.userId == id)
-    // let UserPerformance = USER_PERFORMANCE.find((user) => user.userId == id)
-
-    // console.log(UserMainDatas)
-    // console.log(UserActivity)
-    // console.log(UserAverageSessions)
-    // console.log(UserPerformance)
-
-    // console.log("userDatas")
-    // console.log(userDatas)
-
     return (
         <div className="">
             {
-                isLoading === true ? <div className="chargement">Chargement</div>
+                isLoading === true ? 
+                
+                <h1 className='titre-dashboard mb-5'>Bonjour <Loader></Loader></h1>
                 :
                 <h1 className='titre-dashboard mb-5'>Bonjour <span className="firstname">{userDatas.userInfos.firstName}</span></h1>
             }
+
 
             <p className="mb-5">Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
 
             <div className="row">
 
                 {/* block gauche */}
-                <div className="col-9">
+                <div className="col-lg-9">
 
                     {/* graphique barres */}
                     <div className="graphique mb-5 p-4">
@@ -83,28 +73,16 @@ function Dashboard({id})
                     </div>
 
                     {/* 3 blocks */}
-                    <div className="d-flex justify-content-between donnes gap-4">
+                    <div className="donnees gap-2">
 
                         {/* line */}
-                        <div className="col-4 rounded line-box">
-
-                            {/* <div className='line-text'>Durée moyenne des sessions</div> */}
-
-                            <LineAnalytic id={id}></LineAnalytic>
-
-                        </div>
+                        <LineAnalytic id={id}></LineAnalytic>
 
                         {/* radar */}
-                        <div className="col-4 rounded radar">
-                            <PerformanceAnalitic id={id}></PerformanceAnalitic>
-                        </div>
+                        <PerformanceAnalitic id={id}></PerformanceAnalitic>
 
                         {/* radial bar */}
-                        <div className="col-4 rounded kpi">
-                           
-                            <PieAnalytics id={id}></PieAnalytics>
-                            
-                        </div>
+                        <PieAnalytics id={id}></PieAnalytics>
 
                     </div>
 
@@ -112,7 +90,8 @@ function Dashboard({id})
 
                 {/* bloc droit */}
                 {
-                    isLoading === true ? <div className="chargement">Chargement</div>
+                    isLoading === true ? 
+                    <Loader></Loader>
                     :
                     <Informations datas={userDatas}></Informations>
                 }

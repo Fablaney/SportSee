@@ -9,6 +9,7 @@ import { PieChart, Pie, Sector, Cell, ResponsiveContainer, Label } from 'rechart
 
 // import perso
 import "./style.scss"
+import Loader from '../Loader';
 
 function PieAnalytics({id})
 {
@@ -47,54 +48,66 @@ function PieAnalytics({id})
     // couleur rouge et couleur gris clair
     const COLORS = ["#FF0000", "#FBFBFB"]
 
-    return (
-        <div className="h-100 analityc-box">
+    if(isLoading == true)
+    {
+        return (
+            <div className="score-box rounded mb-4">
 
-            <div className='scrore-title'>Score</div>
-
-            <div className='scrore-count'>
-
-                <div className='score-percent'>{score} %</div>
-                <div className='score-text'>
-                    de votre
-                    <br/>
-                    objectif
-                </div>
+                <Loader></Loader>
 
             </div>
+        )
+    }
+    else
+    {
+        return (
+            <div className="score-box rounded mb-4">
 
-            {
-                isLoading === true ? <div className="chargement">Chargement</div>
-                :
-                <PieChart width={300} height={300}>
+                <div className='scrore-title'>Score</div>
 
-                    <Pie
-                        data={data}
-                        innerRadius={85}
-                        outerRadius={100}
-                        paddingAngle={0}
-                        dataKey="value"
-                        startAngle={180}
-                        endAngle={-360}
-                    >
+                <div className='scrore-count'>
+    
+                    <div className='score-percent'>{score} %</div>
+                    <div className='score-text'>
+                        de votre
+                        <br/>
+                        objectif
+                    </div>
+    
+                </div>
 
-                        {/* <Label value={labelChild} className='label-line' position="center"></Label> */}
+                <ResponsiveContainer width="100%" height="100%">
 
-                        {
-                            data.map((entry, index) => (
-                                <Cell
-                                    key={`cell-${index}`}
-                                    fill={COLORS[index % COLORS.length]}
-                                />
-                            ))
-                        }
-                    </Pie>
-                
-                </PieChart>
-            }
+                    <PieChart width={300} height={300}>
 
-        </div>
-    )
+                        <Pie
+                            data={data}
+                            innerRadius={85}
+                            outerRadius={100}
+                            paddingAngle={0}
+                            dataKey="value"
+                            startAngle={180}
+                            endAngle={-360}
+
+                        >
+                            {
+                                data.map((entry, index) => (
+                                    <Cell
+                                        key={`cell-${index}`}
+                                        fill={COLORS[index % COLORS.length]}
+                                        cornerRadius={50}
+                                    />
+                                ))
+                            }
+                        </Pie>
+                    
+                    </PieChart>
+
+                </ResponsiveContainer>
+            </div>
+        )
+    }
+   
 }
 
 export default PieAnalytics

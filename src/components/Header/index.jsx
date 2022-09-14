@@ -1,4 +1,7 @@
-import { Link } from 'react-router-dom'
+// import react
+import { NavLink } from "react-router-dom";
+
+// import perso
 import Logo from '../../assets/logo.png'
 import "./style.scss"
 
@@ -8,26 +11,26 @@ function Header()
         <header className='d-flex align-items-center'>
          
             <nav className='w-100 d-flex justify-content-around align-items-center'>
+      
+                <NavLink className="nav-link" to="/">
+                    <img className='accueillogo' src={Logo} alt="" />
+                </NavLink>
 
-                <Link className='nav-link' to="/">
-                    <img className='Accueillogo' src={Logo} alt="" />
-                </Link>
-
-                <Link className='nav-link' to="/">
+                <NavLink activeClassName='active' className="nav-link" to="/">
                     Accueil
-                </Link>
+                </NavLink>
 
-                <Link className='nav-link' to="/profil">
+                <NavLink activeClassName='active' className="nav-link" to="/profil">
                     Profil
-                </Link>
+                </NavLink>
 
-                <Link className='nav-link' to="/reglages">
+                <NavLink activeClassName='active' className="nav-link" to="/reglages">
                     Reglages
-                </Link>
+                </NavLink>
 
-                <Link className='nav-link' to="/communaute">
+                <NavLink activeClassName='active' className="nav-link" to="/communaute">
                     Communaute
-                </Link>
+                </NavLink>
 
             </nav>
          

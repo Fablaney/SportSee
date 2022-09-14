@@ -10,8 +10,8 @@ import "./style.scss"
 function Informations({datas})
 {
     return (
-        <div className="col-3 colonne-droite">
-
+        <div className="col-lg-3 colonne-droite">
+     
             <div className="d-flex justify-content-evenly align-items-center mb-5">
 
                 <img className="" src={calories} alt="" />
@@ -42,7 +42,7 @@ function Informations({datas})
                     <div className="count">{datas.keyData.carbohydrateCount} g</div>
                     <div className="type">Glucides</div>
                 </div>
-                
+
             </div>
 
             <div className="d-flex justify-content-evenly align-items-center mb-5">
@@ -53,9 +53,9 @@ function Informations({datas})
                     <div className="count">{datas.keyData.lipidCount} g</div>
                     <div className="type">Lipides</div>
                 </div>
-                
+
             </div>
-            
+
         </div>
     )
 }

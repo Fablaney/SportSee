@@ -9,7 +9,8 @@ import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, Label } fr
 
 // import perso
 import "./style.scss"
-import { render } from '@testing-library/react'
+import Loader from '../Loader'
+
 
 function LineAnalytic({ id })
 {
@@ -46,71 +47,66 @@ function LineAnalytic({ id })
     }
 
     // je créer un tableau pour les jours de la semaine
-    const daysTab = ["L", "M", "M", "J", "V", "S", "D"]
-
-    // je parcours ce tableau
-    const days = daysTab.forEach((index, jour) =>
+    function days(day)
     {
-        return( <span key={index}>{jour}</span> )
-    })
-   
+        const daysTab = ["L", "M", "M", "J", "V", "S", "D"]
+        return daysTab[+day -1];
+    }
+
     // tant qu'on à pas récupéré les données
     if(isLoading === true)
     {
         return (
-            <div className="analityc-box container-averageSessionsChart">      
-                <div className="chargement">Chargement</div>
+            <div className="line-box rounded mb-4">
+                <Loader></Loader>
             </div>
         )
     }
     else
     {
         return (
-            <div className="analityc-box container-averageSessionsChart">
+            <div className="line-box rounded mb-4">
 
                 <h4 className='average-session-title'>Durée moyenne des sessions</h4>
 
-                <LineChart
-                    width={320}
-                    height={400}
-                    margin={{ top: 0, right: 0, bottom: 0, left: 0 }}
-                    data={average.sessions}
-                >
+                <ResponsiveContainer width="100%" height="100%">
 
-                    <XAxis
-                        axisLine={false}
-                        tickLine={false}
-                        dataKey='days'
-                        stroke='rgba(255, 255, 255, 0.5)'
-                        tick={{ fontSize: 12 }}
-                        minTickGap={3}
-                    />
+                    <LineChart
+                        width={400}
+                        height={100}
+                        margin={{ top: 60, right: 10, bottom: 0, left: 10 }}
+                        data={average.sessions}
+                    >
+                        <XAxis
+                            dataKey="day"
+                            tickFormatter={days}
+                            stroke="white"
+                            opacity={0.5}
+                        />
 
-                    <YAxis
-                        hide={true}
-                        domain={['dataMin -40', 'dataMax +30']}
-                        tickLine={false}
-                        type="number"
-                    />
+                        <YAxis
+                            dataKey='sessionLength'
+                            hide={true}
+                        />
 
-                    <Tooltip content ={<AverageSessionsChartTooltip/>}/>
+                        <Tooltip content={<AverageSessionsChartTooltip/>}/>
 
-                    <Line
-                        dataKey='sessionLength'
-                        type='monotone'
-                        stroke='rgba(255, 255, 255, 0.5)'
-                        strokeWidth={2}
-                        dot={false}
-                        activeDot={{
-                            stroke: 'rgba(255, 255, 255, 0.5)',
-                            strokeWidth: 10,
-                            r: 5,
-                        }}
-                    />
+                        <Line
+                            dataKey='sessionLength'
+                            type='monotone'
+                            stroke='rgba(255, 255, 255, 0.5)'
+                            strokeWidth={2}
+                            dot={false}
+                            activeDot={{
+                                stroke: 'rgba(255, 255, 255, 0.5)',
+                                strokeWidth: 10,
+                                r: 5,
+                            }}
+                        />
 
-                </LineChart>
+                    </LineChart>
 
-                <div className="days">{days}</div>
+                </ResponsiveContainer>
 
             </div>
         )

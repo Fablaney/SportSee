@@ -8,8 +8,6 @@
     }
 }
 
-
-
 // partie gauche
 .graphique
 {
@@ -30,26 +28,10 @@
     border-radius: 50%;
     background-color: #FF0000;
 }
-.objectifs
+// 3 blocs
+.donnees
 {
-    height: 263px;
-    background-color: #FF0000;
-
-}
-.radar
-{
-    height: 263px;
-    background-color: #282D30;
-}
-.kpi
-{
-    height: 263px;
-    background-color: #FBFBFB;;
-}
-
-// hauteur des 3 blocs analytics
-.analityc-box
-{
-    height: 264px;
-    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }

@@ -1,12 +1,10 @@
-.container-averageSessionsChart
+.line-box
 {
+	background-color: #ff0000;
+	height: 263px;
 	position: relative;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	background: #ff0000;
-	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0212249);
-	border-radius: 5px;
+    max-width: 316px;
+	flex: 1 1 200px;
 }
 .average-session-title
 {
@@ -16,16 +14,6 @@
     right: 30%;
 	font-size: 15px;
 	color: rgba(255, 255, 255, 0.5);
-}
-.days
-{
-	position: absolute;
-	bottom:1rem;
-}
-.days span
-{
-	color: rgba(255, 255, 255, 0.5);
-	margin: 1rem;
 }
 .averageSessionsTooltip
 {

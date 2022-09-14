@@ -12,12 +12,11 @@ body
     max-height: 100vh;
     max-width: 100vw;
 }
-.vertical-spacer
+.horizontal-spacer
 {
-    width: 117px;
+    height: 15vh;
 }
-.horizontal-sapcer
+.page
 {
-    height: 12vh;
+    margin-left: 117px;
 }
-

@@ -12,7 +12,7 @@ header
         
     }
 }
-.Accueillogo
+.accueillogo
 {
     height: 57px;
 
@@ -24,9 +24,12 @@ header
 .nav-link
 {
     font-size: 24px;
+    
+    transition: all 1s ease-out;
 
     &:hover
     {
+        transition: all 1s ease-out;
         text-decoration: underline;
     }
 
@@ -34,4 +37,10 @@ header
     {
        
     }
+}
+.active
+{
+    transition: all 1s ease-out;
+    text-decoration: underline;
+    text-decoration-color: red;
 }

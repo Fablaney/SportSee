@@ -10,9 +10,9 @@ function Profil()
     const { id } = useParams()
 
     return (
-        <div className="d-flex align-items-center">
+        <div className="d-flex align-items-center page">
 
-            <div className='container-xl'>
+            <div className='container'>
 
                 <h1 className=''>Profil</h1>
 

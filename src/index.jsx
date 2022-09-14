@@ -27,7 +27,7 @@ root.render(
 
         <Footer/>
         
-        <div className="horizontal-sapcer"></div>
+        <div className="horizontal-spacer"></div>
         
         <Routes>
 

@@ -1,11 +1,9 @@
 import "./style.scss"
-import Footer from "../../components/Footer"
+
 function Communaute()
 {
     return (
-        <div className="d-flex align-items-center">
-
-            <Footer></Footer>
+        <div className="d-flex align-items-center page">
 
             <div className='container '>
 

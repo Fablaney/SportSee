@@ -4,7 +4,7 @@ import "./style.scss"
 function Error()
 {
     return (
-        <div className="d-flex align-items-center">
+        <div className="d-flex align-items-center page">
        
             <div className="container text-center">
           
