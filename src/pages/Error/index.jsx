@@ -1,6 +1,12 @@
 import { Link } from "react-router-dom"
 import "./style.scss"
 
+/**
+ * Render of 404 page
+ * @function Error
+ * @param {*}
+ * @returns {jsx}
+ */
 function Error()
 {
     return (
