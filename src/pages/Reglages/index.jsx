@@ -1,6 +1,11 @@
 import "./style.scss"
-import Footer from "../../components/Footer"
 
+/**
+ * Render of Reglages page
+ * @function Reglages
+ * @param {*}
+ * @returns {jsx}
+ */
 function Reglages()
 {
     return (
