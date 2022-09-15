@@ -1,5 +1,11 @@
 import "./style.scss"
 
+/**
+ * Render of Communaute page
+ * @function Reglages
+ * @param {*}
+ * @returns {jsx}
+ */
 function Communaute()
 {
     return (
