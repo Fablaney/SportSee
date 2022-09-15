@@ -15,33 +15,33 @@ import "./style.scss"
 import Informations from "../Informations"
 import Loader from '../Loader'
 
-import GetUserDatas from '../../api/api'
+// import {getUserDatas} from '../../api/api'
 
 function Dashboard({id})
 {
     // j'initialise un state data et state data met à jour datas
-    // const [userDatas, setDatas] = useState({})
+    const [userDatas, setDatas] = useState({})
 
-    // const [isLoading, setLoading] = useState(true)
+    const [isLoading, setLoading] = useState(true)
 
-    // useEffect(()=> {
-    //     axios.get('http://localhost:3000/user/'+ id).then( function(response)
-    //     {
-    //         // console.log(response.data.data)
+    useEffect(()=> {
+        axios.get('http://localhost:3000/user/'+ id).then( function(response)
+        {
+            // console.log(response.data.data)
 
-    //         setDatas({...response.data.data})
+            setDatas({...response.data.data})
 
-    //         // console.log(userDatas)
+            // console.log(userDatas)
 
-    //         setLoading(false)
+            setLoading(false)
 
-    //         console.log(isLoading)
-    //     })
-    // }, [])
+            console.log(isLoading)
+        })
+    }, [])
 
-    console.log(id)
-    GetUserDatas(id)
-    console.log(userDatas)
+    // console.log(id)
+    // getUserDatas(id)
+    // console.log(userDatas)
 
     return (
         <div className="">
