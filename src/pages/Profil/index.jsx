@@ -4,6 +4,12 @@ import { useParams } from "react-router-dom"
 import "./style.scss"
 import Dashboard from "../../components/Dashboard"
 
+/**
+ * Render of Profil page
+ * @function Profil
+ * @param {*}
+ * @returns {jsx}
+ */
 function Profil()
 {
     // je récupere l'id passée en parametre de l'url /profil/:id
