@@ -1,5 +1,6 @@
 // import react
 import React, {useState, useEffect} from 'react'
+import { Navigate } from 'react-router-dom'
 
 // lecture des données
 import axios from 'axios'
@@ -34,19 +35,19 @@ function Dashboard({id})
         {
             // console.log(response.data.data)
 
+            if (!response || response === undefined) return <Navigate to='/404' />
+
             setDatas({...response.data.data})
+
+            console.log(response)
 
             // console.log(userDatas)
 
             setLoading(false)
 
-            console.log(isLoading)
+            // console.l og(isLoading)
         })
     }, [])
-
-    // console.log(id)
-    // getUserDatas(id)
-    // console.log(userDatas)
 
     return (
         <div className="">
