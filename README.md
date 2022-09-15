@@ -1,120 +1,60 @@
-# Getting Started with Create React App
+### SportSee
+Projet 12 - Développez un tableau de bord d'analytics avec React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Author
+RUIZ Fabien
+
+### Technologies
+Made-with-Javascript
+Sassv-1.54.5
+React-18.2.0
+React-Router-6.3.0
+Recharts-2.1.14
+
+### Repo Git
+https://github.com/Fablaney/SportSee
 
 ## Available Scripts
-
 In the project directory, you can run:
 
+<!-- To start the project on local server -->
 ### `npm start`
-
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
+<!-- To run the build and post on prod server -->
 ### `npm run build`
-
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
-
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-
-
-
-
+<!-- Installations -->
 ### Boostrap 
-    Boostrap 5.2 est installé
+Boostrap 5.2 is instal
 
-### Sass est installé
-    Sass est installé
+### Sass
+Sass is instal
 
 ### React Router
-    La version 6 est installé
+The version 6 is instal
 
 
+### Resources provided
+link-maquette-Figma
+https://www.figma.com/file/BMomGVZqLZb811mDMShpLu/UI-design-Sportify-FR?node-id=0%3A1
 
-    SportSee
-Projet 12 - Développez un tableau de bord d'analytics avec React
+link-Kanban-SportSee
+https://www.notion.so/Tableau-de-bord-SportSee-6686aa4b5f44417881a4884c9af5669e
 
-Author
-Catheline GRAPPIN
-Technologies
-Made-with-Javascript
-Sassv_1.49.9
-React-v_17.0.2
-React-Router-v_6.2.2
-Recharts-v_2.1.9
-Environments
-https://github.com/CathelineOnceUponATime/CathelineGrappin_12_10032022
+### Installation
+npm-8.5.5
+and
+NodeJs-16.15.0
 
-https://sportsee-onceuponatime.netlify.app/user/12?mocked
-
-Maintainability Rating Reliability Rating Security Rating
-Lines of Code Bugs Code Smells
-
-Resources provided
-lien-maquette-Figma
-
-lien-Kanban-SportSee
-
-Installation
-Prerequisites
-npm-v_7.24.1
-
-NodeJs-v_16.10.0
-
-VSCode
-
+### VSCode
 Installing and launching Back-End
 Clone the repository of SportSee Back-End:
 
