@@ -6,9 +6,13 @@ RUIZ Fabien
 
 ### Technologies
 Made-with-Javascript
+
 Sassv-1.54.5
+
 React-18.2.0
+
 React-Router-6.3.0
+
 Recharts-2.1.14
 
 ### Repo Git
