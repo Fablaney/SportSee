@@ -31,6 +31,7 @@ const USER_MAIN_DATA = [
     }
 ]
 
+
 const USER_ACTIVITY = [
     {
         userId: 12,
@@ -261,7 +262,6 @@ const USER_PERFORMANCE = [
         ]
     }
 ]
-
 
 
 module.exports = {
