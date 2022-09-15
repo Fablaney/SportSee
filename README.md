@@ -15,9 +15,6 @@ React-Router-6.3.0
 
 Recharts-2.1.14
 
-### Repo Git
-https://github.com/Fablaney/SportSee
-
 ## Available Scripts
 In the project directory, you can run:
 
@@ -57,7 +54,7 @@ npm-8.5.5
 and
 NodeJs-16.15.0
 
-### VSCode
+### VSCode and Repo Git
 ### Installing and launch Back-End
 Clone the repository of SportSee Back-End:
 git clone https://github.com/Fablaney/SportSee-Backend
