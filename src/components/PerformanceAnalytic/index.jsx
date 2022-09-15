@@ -63,7 +63,7 @@ function PerformanceAnalytic({ id })
     {
         return(
             <div className="radar-box rounded mb-4">
-                <Loader></Loader>
+                <Loader />
             </div>
         )
     }

@@ -71,7 +71,7 @@ function LineAnalytic({ id })
     {
         return (
             <div className="line-box rounded mb-4">
-                <Loader></Loader>
+                <Loader />
             </div>
         )
     }

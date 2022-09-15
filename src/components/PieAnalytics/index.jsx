@@ -60,7 +60,7 @@ function PieAnalytics({id})
         return (
             <div className="score-box rounded mb-4">
 
-                <Loader></Loader>
+                <Loader />
 
             </div>
         )

@@ -1,6 +1,6 @@
 // import react
 import React, {useState, useEffect} from 'react'
-import { Navigate } from 'react-router-dom'
+import { useParams, Navigate } from 'react-router-dom'
 
 // lecture des données
 import axios from 'axios'
@@ -23,8 +23,10 @@ import Loader from '../Loader'
  * @param {*}
  * @returns {jsx}
  */
-function Dashboard({id})
+function Dashboard()
 {
+    const { id } = useParams()
+
     // j'initialise un state data et state data met à jour datas
     const [userDatas, setDatas] = useState({})
 
@@ -35,11 +37,12 @@ function Dashboard({id})
         {
             // console.log(response.data.data)
 
-            if (!response || response === undefined) return <Navigate to='/404' />
+            if (!response || response === undefined)
+            {
+                return <Navigate to='/404' />
+            } 
 
             setDatas({...response.data.data})
-
-            console.log(response)
 
             // console.log(userDatas)
 
@@ -54,7 +57,7 @@ function Dashboard({id})
             {
                 isLoading === true ? 
                 
-                <h1 className='titre-dashboard mb-5'>Bonjour <Loader></Loader></h1>
+                <h1 className='titre-dashboard mb-5'>Bonjour <Loader/></h1>
                 :
                 <h1 className='titre-dashboard mb-5'>Bonjour <span className="firstname">{userDatas.userInfos.firstName}</span></h1>
             }
@@ -100,7 +103,7 @@ function Dashboard({id})
                 {/* bloc droit */}
                 {
                     isLoading === true ? 
-                    <Loader></Loader>
+                    <Loader />
                     :
                     <Informations datas={userDatas}></Informations>
                 }

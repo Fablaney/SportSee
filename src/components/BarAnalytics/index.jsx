@@ -1,5 +1,6 @@
 // import charts
 import React, {useState, useEffect} from 'react'
+import PropTypes from 'prop-types';
 
 // lecture des données
 import axios from 'axios'
@@ -124,3 +125,7 @@ function BarAnalytics({ id })
 }
 
 export default BarAnalytics
+
+BarAnalytics.propTypes = {
+    id: PropTypes.string.isRequired
+}
