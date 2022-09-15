@@ -1,4 +1,5 @@
 // import react
+import React from "react";
 import { NavLink } from "react-router-dom";
 
 // import perso
@@ -16,19 +17,19 @@ function Header()
                     <img className='accueillogo' src={Logo} alt="" />
                 </NavLink>
 
-                <NavLink activeClassName='active' className="nav-link" to="/">
+                <NavLink className={({ isActive }) => isActive ? "nav-link active": "nav-link"} to="/">
                     Accueil
                 </NavLink>
 
-                <NavLink activeClassName='active' className="nav-link" to="/profil">
+                <NavLink className={({ isActive }) => isActive ? "nav-link active": "nav-link"} to="/profil">
                     Profil
                 </NavLink>
 
-                <NavLink activeClassName='active' className="nav-link" to="/reglages">
+                <NavLink className={({ isActive }) => isActive ? "nav-link active": "nav-link"} to="/reglages">
                     Reglages
                 </NavLink>
 
-                <NavLink activeClassName='active' className="nav-link" to="/communaute">
+                <NavLink className={({ isActive }) => isActive ? "nav-link active": "nav-link"} to="/communaute">
                     Communaute
                 </NavLink>
 

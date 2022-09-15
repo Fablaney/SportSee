@@ -1,4 +1,4 @@
-// import charts
+// import react
 import React, {useState, useEffect} from 'react'
 
 // lecture des données
@@ -14,9 +14,6 @@ import PieAnalytics from "../PieAnalytics"
 import "./style.scss"
 import Informations from "../Informations"
 import Loader from '../Loader'
-
-// datas
-// import { USER_MAIN_DATA, USER_ACTIVITY, USER_AVERAGE_SESSIONS, USER_PERFORMANCE }  from "../../api/data.js"
 
 function Dashboard({id})
 {

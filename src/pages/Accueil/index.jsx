@@ -1,3 +1,5 @@
+// import react
+import React from 'react'
 import { Link } from "react-router-dom"
 
 // import perso
@@ -6,13 +8,14 @@ import "./style.scss"
 // datas
 import { USER_MAIN_DATA }  from "../../api/data.js"
 
+/**
+ * Render of Accueil page
+ * @function Accueil
+ * @param {*}
+ * @returns {jsx}
+ */
 function Accueil()
 {
-    // USER_MAIN_DATA.map(user => {
-    //     console.log(user.id)
-    //     console.log(user.userInfos.firstName)
-    // })
-
     return (
         <div className="d-flex align-items-center page">
 
