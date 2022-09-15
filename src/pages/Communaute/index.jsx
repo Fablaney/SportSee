@@ -2,7 +2,7 @@ import "./style.scss"
 
 /**
  * Render of Communaute page
- * @function Reglages
+ * @function Communaute
  * @param {*}
  * @returns {jsx}
  */
