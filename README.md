@@ -41,7 +41,6 @@ Sass is instal
 ### React Router
 The version 6 is instal
 
-
 ### Resources provided
 link-maquette-Figma
 https://www.figma.com/file/BMomGVZqLZb811mDMShpLu/UI-design-Sportify-FR?node-id=0%3A1
@@ -55,10 +54,9 @@ and
 NodeJs-16.15.0
 
 ### VSCode
-Installing and launching Back-End
+### Installing and launch Back-End
 Clone the repository of SportSee Back-End:
-
-git clone https://github.com/CathelineOnceUponATime/P12-Back-End.git
+git clone https://github.com/Fablaney/SportSee-Backend
 
 Inside this back-end repository, install dependencies:
 
@@ -68,10 +66,9 @@ Launch back-end on port 3000 (default port):
 
 npm run start
 
-Installing and launching Front-end
+### Installing and launching Front-end
 Clone the repository of SportSee Front-End:
-
-git clone https://github.com/CathelineOnceUponATime/CathelineGrappin_12_10032022.git
+git clone https://github.com/Fablaney/SportSee
 
 Inside this Front-End repository, install dependencies:
 
