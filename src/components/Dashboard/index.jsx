@@ -7,7 +7,7 @@ import axios from 'axios'
 // import charts
 import BarAnalytics from "../BarAnalytics"
 import LineAnalytic from "../LineAnalytic"
-import PerformanceAnalitic from "../PerformanceAnalitic"
+import PerformanceAnalytic from "../PerformanceAnalytic"
 import PieAnalytics from "../PieAnalytics"
 
 // import perso
@@ -15,8 +15,13 @@ import "./style.scss"
 import Informations from "../Informations"
 import Loader from '../Loader'
 
-// import {getUserDatas} from '../../api/api'
-
+/**
+ * @component
+ * @description Render of the dashboard, he call the others components inside, informations, barchart, linechart, radarchart, piechart
+ * @function Dashboard
+ * @param {*}
+ * @returns {jsx}
+ */
 function Dashboard({id})
 {
     // j'initialise un state data et state data met à jour datas
@@ -82,7 +87,7 @@ function Dashboard({id})
                         <LineAnalytic id={id}></LineAnalytic>
 
                         {/* radar */}
-                        <PerformanceAnalitic id={id}></PerformanceAnalitic>
+                        <PerformanceAnalytic id={id}></PerformanceAnalytic>
 
                         {/* radial bar */}
                         <PieAnalytics id={id}></PieAnalytics>

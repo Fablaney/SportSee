@@ -10,6 +10,13 @@ import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Resp
 // import perso
 import "./style.scss"
 
+/**
+ * @component
+ * @description Render of the activity in Bar Chart
+ * @function BarAnalytics
+ * @param {*}
+ * @returns {jsx}
+ */
 function BarAnalytics({ id })
 {
     // j'initialise un state data et state data met à jour datas
@@ -32,6 +39,13 @@ function BarAnalytics({ id })
         })
     }, [])
 
+    /**
+     * @component
+     * @description Component for custom tooltip
+     * @function CustomTooltipActivity
+     * @param {*}
+     * @returns {jsx}
+     */
     const CustomTooltipActivity = ({ active, payload }) => {
         if (active && payload && payload.length)
         {

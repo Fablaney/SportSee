@@ -1,4 +1,4 @@
-// import charts
+// import react
 import React, {useState, useEffect} from 'react'
 
 // lecture des données
@@ -11,7 +11,13 @@ import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, Label } fr
 import "./style.scss"
 import Loader from '../Loader'
 
-
+/**
+ * @component
+ * @description Render of the average sessions in Line Chart
+ * @function LineAnalytic
+ * @param {*}
+ * @returns {jsx}
+ */
 function LineAnalytic({ id })
 {
     // j'initialise un state data et state data met à jour datas
@@ -36,6 +42,13 @@ function LineAnalytic({ id })
         })
     }, [])
 
+    /**
+     * @component
+     * @description Component for custom tooltip
+     * @function AverageSessionsChartTooltip
+     * @param {*}
+     * @returns {jsx}
+     */
     // personnalisation du tooltip
     function AverageSessionsChartTooltip({ active, payload })
     {

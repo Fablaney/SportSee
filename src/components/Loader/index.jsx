@@ -3,7 +3,10 @@ import "./style.scss";
 
 /**
  * @component
- * @description Component Loader who appears when the datas are not fetched yet
+ * @description Render a loader when the datas are not fetched
+ * @function Loader
+ * @param {*}
+ * @returns {jsx}
  */
 function Loader()
 {

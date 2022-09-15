@@ -6,6 +6,13 @@ import { NavLink } from "react-router-dom";
 import Logo from '../../assets/logo.png'
 import "./style.scss"
 
+/**
+ * @component
+ * @description Render of the Header
+ * @function Header
+ * @param {*}
+ * @returns {jsx}
+ */
 function Header()
 {
     return (

@@ -1,4 +1,4 @@
-// import charts
+// import react
 import React, {useState, useEffect} from 'react'
 
 // lecture des données
@@ -11,6 +11,13 @@ import { PieChart, Pie, Sector, Cell, ResponsiveContainer, Label } from 'rechart
 import "./style.scss"
 import Loader from '../Loader';
 
+/**
+ * @component
+ * @description Render of the score in Pie Chart
+ * @function PieAnalytics
+ * @param {*}
+ * @returns {jsx}
+ */
 function PieAnalytics({id})
 {
     // j'initialise un state data et state data met à jour datas
@@ -88,7 +95,6 @@ function PieAnalytics({id})
                             dataKey="value"
                             startAngle={180}
                             endAngle={-360}
-
                         >
                             {
                                 data.map((entry, index) => (

@@ -12,12 +12,13 @@ import "./style.scss"
 import Loader from '../Loader'
 
 /**
- * Render of the performances radar
- * @function PerformanceAnalitic
+ * @component
+ * @description Render of the performances in the Radar Chart
+ * @function PerformanceAnalytic
  * @param {*}
  * @returns {jsx}
  */
-function PerformanceAnalitic({ id })
+function PerformanceAnalytic({ id })
 {
     // j'initialise un state data et state data met à jour datas
     const [performance, setDatas] = useState({})
@@ -40,7 +41,7 @@ function PerformanceAnalitic({ id })
     }, [])
 
     /**
-     * Render kinds in news tab, used in parameter of PolarAngleAxis
+     * @description Render kinds in news tab, used in parameter of PolarAngleAxis
      * @function kinds
      * @param {*} kind 
      * @returns 
@@ -106,4 +107,4 @@ function PerformanceAnalitic({ id })
     }
 }
 
-export default PerformanceAnalitic
+export default PerformanceAnalytic

@@ -1,12 +1,20 @@
-import React from "react";
+// import react
+import React from "react"
+
+// import perso
 import calories from '../../assets/calories-icon.png'
 import proteines from '../../assets/proteines-icon.png'
 import glucides from '../../assets/glucides-icon.png'
 import lipides from '../../assets/lipides-icon.png'
-
-// import perso
 import "./style.scss"
 
+/**
+ * @component
+ * @description Render of the Right column
+ * @function Informations
+ * @param {*}
+ * @returns {jsx}
+ */
 function Informations({datas})
 {
     return (

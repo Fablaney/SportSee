@@ -1,11 +1,20 @@
+// import reacr
 import { Link } from 'react-router-dom'
+
+// import perso
 import yoga from '../../assets/yoga.png'
 import swim from '../../assets/swim.png'
 import bike from '../../assets/bike.png'
 import poids from '../../assets/poids.png'
-
 import "./style.scss"
 
+/**
+ * @component
+ * @description Render of the Footer
+ * @function footer
+ * @param {*}
+ * @returns {jsx}
+ */
 function Footer()
 {
     return (
