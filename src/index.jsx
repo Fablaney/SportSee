@@ -18,6 +18,9 @@ import Error from './pages/Error';
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
+/**
+ * Router his job is send the good page whith the URL, or 404 if page not found
+ */
 const root = ReactDOM.createRoot(document.getElementById('root'))
 
 root.render(
