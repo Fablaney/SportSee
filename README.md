@@ -80,3 +80,65 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 ### React Router
     La version 6 est installé
+
+
+
+    SportSee
+Projet 12 - Développez un tableau de bord d'analytics avec React
+
+Author
+Catheline GRAPPIN
+Technologies
+Made-with-Javascript
+Sassv_1.49.9
+React-v_17.0.2
+React-Router-v_6.2.2
+Recharts-v_2.1.9
+Environments
+https://github.com/CathelineOnceUponATime/CathelineGrappin_12_10032022
+
+https://sportsee-onceuponatime.netlify.app/user/12?mocked
+
+Maintainability Rating Reliability Rating Security Rating
+Lines of Code Bugs Code Smells
+
+Resources provided
+lien-maquette-Figma
+
+lien-Kanban-SportSee
+
+Installation
+Prerequisites
+npm-v_7.24.1
+
+NodeJs-v_16.10.0
+
+VSCode
+
+Installing and launching Back-End
+Clone the repository of SportSee Back-End:
+
+git clone https://github.com/CathelineOnceUponATime/P12-Back-End.git
+
+Inside this back-end repository, install dependencies:
+
+npm install
+
+Launch back-end on port 3000 (default port):
+
+npm run start
+
+Installing and launching Front-end
+Clone the repository of SportSee Front-End:
+
+git clone https://github.com/CathelineOnceUponATime/CathelineGrappin_12_10032022.git
+
+Inside this Front-End repository, install dependencies:
+
+npm install
+
+Lauch Front-End on port 3001:
+
+npm start
+
+Front-End is now rendered at URL http://localhost:3001
