@@ -39,6 +39,7 @@ root.render(
             <Route path="/profil/:id" element={<Profil />} />
 
             <Route path="/reglages" element={<Reglages />} />
+
             <Route path="/communaute" element={<Communaute />} />
 
             {/* page d'erreur */}

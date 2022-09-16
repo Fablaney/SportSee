@@ -2,14 +2,12 @@
 import React, {useState, useEffect} from 'react'
 import PropTypes from 'prop-types';
 
-// lecture des données
-import axios from 'axios'
-
 // import Recharts
 import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 // import perso
 import "./style.scss"
+import { fetchActivity } from '../../api/api'
 
 /**
  * @component
@@ -26,8 +24,8 @@ function BarAnalytics({ id })
     const [isLoading, setLoading] = useState(true)
 
     useEffect(()=> {
-        axios.get('http://localhost:3000/user/'+ id +'/activity').then( function(response)
-        {
+
+        fetchActivity(id).then((response)=> {
             // console.log(response.data.data)
 
             setDatas({...response.data.data})
@@ -38,6 +36,7 @@ function BarAnalytics({ id })
 
             // console.log(isLoading)
         })
+
     }, [])
 
     /**

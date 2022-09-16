@@ -1,6 +1,7 @@
 // import react
 import React, {useState, useEffect} from 'react'
 import { useParams, Navigate } from 'react-router-dom'
+import { Route } from 'react-router-dom'
 
 // lecture des données
 import axios from 'axios'
@@ -15,6 +16,7 @@ import PieAnalytics from "../PieAnalytics"
 import "./style.scss"
 import Informations from "../Informations"
 import Loader from '../Loader'
+import User from '../../models/user'
 
 /**
  * @component
@@ -32,25 +34,34 @@ function Dashboard()
 
     const [isLoading, setLoading] = useState(true)
 
+    const [error, setError] = useState(false)
+
     useEffect(()=> {
         axios.get('http://localhost:3000/user/'+ id).then( function(response)
         {
             // console.log(response.data.data)
 
-            if (!response || response === undefined)
-            {
-                return <Navigate to='/404' />
-            } 
+            setDatas(new User(response.data.data))
 
-            setDatas({...response.data.data})
-
-            // console.log(userDatas)
+            // let user = new User(response.data.data)
+            // console.log(user)
+            console.log(userDatas)
 
             setLoading(false)
 
             // console.l og(isLoading)
         })
+        .catch((error) => {
+            // console.log(error)
+            setError(true);
+            
+        })
     }, [])
+
+    if( error === true)
+    {
+        return <Navigate to="/Error" />
+    }
 
     return (
         <div className="">
