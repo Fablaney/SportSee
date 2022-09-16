@@ -1,5 +1,6 @@
 // import react
 import React from "react"
+import PropTypes from 'prop-types';
 
 // import perso
 import calories from '../../assets/calories-icon.png'
@@ -12,13 +13,13 @@ import "./style.scss"
  * @component
  * @description Render of the Right column
  * @function Informations
- * @param {*}
+ * @param {object}
  * @returns {jsx}
  */
 function Informations({datas})
 {
     return (
-        <div className="col-lg-3 colonne-droite">
+        <div className="colonne-droite">
      
             <div className="d-flex justify-content-evenly align-items-center mb-5">
 
@@ -69,3 +70,7 @@ function Informations({datas})
 }
 
 export default Informations
+
+Informations.propTypes = {
+    datas: PropTypes.object.isRequired
+}

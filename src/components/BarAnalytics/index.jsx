@@ -1,13 +1,15 @@
 // import charts
 import React, {useState, useEffect} from 'react'
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 
 // import Recharts
-import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
 
 // import perso
 import "./style.scss"
+import Loader from '../Loader'
 import { fetchActivity } from '../../api/api'
+import UserActivity from '../../models/activity'
 
 /**
  * @component
@@ -26,18 +28,15 @@ function BarAnalytics({ id })
     useEffect(()=> {
 
         fetchActivity(id).then((response)=> {
-            // console.log(response.data.data)
 
-            setDatas({...response.data.data})
-
-            // console.log(activity)
+            setDatas(new UserActivity(response.data.data))
 
             setLoading(false)
-
-            // console.log(isLoading)
         })
 
     }, [])
+
+    console.log(activity)
 
     /**
      * @component
@@ -58,7 +57,16 @@ function BarAnalytics({ id })
         }
         return null
     }
-
+    // tant qu'on à pas récupéré les données
+    if(isLoading === true)
+    {
+        return (
+            <div className="bar-box">
+                <Loader />
+            </div>
+        )
+    }
+    // if all OK
     return (     
         <div className="bar-box">
             {

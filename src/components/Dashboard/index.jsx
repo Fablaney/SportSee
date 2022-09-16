@@ -1,10 +1,6 @@
 // import react
 import React, {useState, useEffect} from 'react'
 import { useParams, Navigate } from 'react-router-dom'
-import { Route } from 'react-router-dom'
-
-// lecture des données
-import axios from 'axios'
 
 // import charts
 import BarAnalytics from "../BarAnalytics"
@@ -16,6 +12,7 @@ import PieAnalytics from "../PieAnalytics"
 import "./style.scss"
 import Informations from "../Informations"
 import Loader from '../Loader'
+import { fetchUsermainDatas } from '../../api/api'
 import User from '../../models/user'
 
 /**
@@ -27,41 +24,40 @@ import User from '../../models/user'
  */
 function Dashboard()
 {
+    // recuperation de l'id passée en param url
     const { id } = useParams()
 
     // j'initialise un state data et state data met à jour datas
     const [userDatas, setDatas] = useState({})
 
+    // initialisation du chargement des donées true ou false
     const [isLoading, setLoading] = useState(true)
 
+    // initialisation d'erreur true ou false
     const [error, setError] = useState(false)
 
     useEffect(()=> {
-        axios.get('http://localhost:3000/user/'+ id).then( function(response)
-        {
-            // console.log(response.data.data)
+
+        fetchUsermainDatas(id).then((response)=> {
 
             setDatas(new User(response.data.data))
-
-            // let user = new User(response.data.data)
-            // console.log(user)
-            console.log(userDatas)
+            // console.log(userDatas)
 
             setLoading(false)
+        })
 
-            // console.l og(isLoading)
-        })
+        // in Eroor case, bad url
         .catch((error) => {
-            // console.log(error)
             setError(true);
-            
         })
+
     }, [])
 
-    if( error === true)
-    {
-        return <Navigate to="/Error" />
-    }
+    // if error go on 404 page
+    // if( error === true)
+    // {
+    //     return <Navigate to="/Error" />
+    // }
 
     return (
         <div className="">
@@ -72,7 +68,6 @@ function Dashboard()
                 :
                 <h1 className='titre-dashboard mb-5'>Bonjour <span className="firstname">{userDatas.userInfos.firstName}</span></h1>
             }
-
 
             <p className="mb-5">Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
 
@@ -114,9 +109,13 @@ function Dashboard()
                 {/* bloc droit */}
                 {
                     isLoading === true ? 
-                    <Loader />
+                    <div className="col-lg-3 colonne-droite">
+                        <Loader />
+                    </div>
                     :
-                    <Informations datas={userDatas}></Informations>
+                    <div className="col-lg-3">
+                        <Informations datas={userDatas}></Informations>
+                    </div>
                 }
 
             </div>

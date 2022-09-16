@@ -1,16 +1,14 @@
 // import react
 import React, {useState, useEffect} from 'react'
-
-// lecture des données
-import axios from 'axios'
+import PropTypes from 'prop-types'
 
 // import Recharts
-import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, Label } from 'recharts'
+import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts'
 
 // import perso
 import "./style.scss"
 import Loader from '../Loader'
-
+import { fetchAverageSessions } from '../../api/api'
 /**
  * @component
  * @description Render of the average sessions in Line Chart
@@ -28,18 +26,19 @@ function LineAnalytic({ id })
 
     // récuperation des données avec "id" passé en parametre
     useEffect(()=> {
-        axios.get('http://localhost:3000/user/'+ id +'/average-sessions').then( function(response)
-        {
+
+        fetchAverageSessions(id).then((response)=> {
             // console.log(response.data.data)
 
             setDatas({...response.data.data})
 
-            // console.log(average)
+            // console.log(activity)
 
             setLoading(false)
 
             // console.log(isLoading)
         })
+
     }, [])
 
     /**
@@ -54,7 +53,7 @@ function LineAnalytic({ id })
     {
         if (active)
         {
-            return <p className='averageSessionsTooltip'>{`${payload[0].value} `} min</p>
+            return <div className='averageSessionsTooltip'>{`${payload[0].value} `} min</div>
         }
         return null
     }
@@ -75,6 +74,7 @@ function LineAnalytic({ id })
             </div>
         )
     }
+    // if all OK
     else
     {
         return (
@@ -127,3 +127,7 @@ function LineAnalytic({ id })
 }
 
 export default LineAnalytic
+
+LineAnalytic.propTypes = {
+    id: PropTypes.string.isRequired
+}
