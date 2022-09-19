@@ -3,7 +3,7 @@ import React, {useState, useEffect} from 'react'
 import PropTypes from 'prop-types'
 
 // import Recharts
-import { LineChart, Line, XAxis, YAxis, Tooltip, Rectangle, ResponsiveContainer } from 'recharts'
+import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts'
 
 // import perso
 import "./style.scss"
@@ -142,7 +142,6 @@ function LineAnalytic({ id })
 }
 
 export default LineAnalytic
-
 
 LineAnalytic.propTypes = {
     id: PropTypes.string.isRequired

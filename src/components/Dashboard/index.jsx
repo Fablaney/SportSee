@@ -72,10 +72,10 @@ function Dashboard()
 
                 <div className="row">
 
-                    {/* block gauche */}
+                    {/* block left */}
                     <div className="col-lg-9">
 
-                        {/* graphique barres */}
+                        {/* graphic bars */}
                         <div className="graphique mb-5 p-4">
                 
                             <div className="d-flex">
@@ -105,7 +105,7 @@ function Dashboard()
 
                     </div>
 
-                    {/* bloc droit */}
+                    {/* block right */}
                     {
                         isLoading === true ? 
                         <div className="col-lg-3 colonne-droite">
