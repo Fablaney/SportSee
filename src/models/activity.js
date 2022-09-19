@@ -5,20 +5,20 @@
 export default class UserActivity
 {
     /**
-     * @property {string|null} id
-     * 
+     * @property {string|null} userId
+     * @param { Array.<Object> } data.sessions
      */
     constructor (data)
     {
 
         this.userId = data.userId;
         
-        this.sessions = data.session.map(
-            [{
-                day: data.sessions.day,
-                kilogram: data.sessions.kilogram,
-                calories: data.sessions.calories,
-            }];) 
+        this.sessions = data.sessions.map((session, index) => ({
+            // day: session.day,
+            day: index + 1,
+            kilogram: session.kilogram,
+            calories: session.calories,
+        }));
 
     }
 }

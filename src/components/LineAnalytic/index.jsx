@@ -3,40 +3,36 @@ import React, {useState, useEffect} from 'react'
 import PropTypes from 'prop-types'
 
 // import Recharts
-import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts'
+import { LineChart, Line, XAxis, YAxis, Tooltip, Rectangle, ResponsiveContainer } from 'recharts'
 
 // import perso
 import "./style.scss"
 import Loader from '../Loader'
 import { fetchAverageSessions } from '../../api/api'
+import UserSessions from '../../models/session'
+
 /**
  * @component
  * @description Render of the average sessions in Line Chart
  * @function LineAnalytic
- * @param {*}
+ * @param {string} id
  * @returns {jsx}
  */
 function LineAnalytic({ id })
 {
-    // j'initialise un state data et state data met à jour datas
+    // initialize a state data and state loading and get the datas
     const [average, setDatas] = useState({})
 
-    // initialisation du loader
     const [isLoading, setLoading] = useState(true)
 
-    // récuperation des données avec "id" passé en parametre
     useEffect(()=> {
 
         fetchAverageSessions(id).then((response)=> {
-            // console.log(response.data.data)
 
-            setDatas({...response.data.data})
-
-            // console.log(activity)
+            setDatas(new UserSessions(response.data.data))
 
             setLoading(false)
 
-            // console.log(isLoading)
         })
 
     }, [])
@@ -48,7 +44,7 @@ function LineAnalytic({ id })
      * @param {*}
      * @returns {jsx}
      */
-    // personnalisation du tooltip
+    // personnalisation of the tooltip
     function AverageSessionsChartTooltip({ active, payload })
     {
         if (active)
@@ -58,19 +54,21 @@ function LineAnalytic({ id })
         return null
     }
 
-    // je créer un tableau pour les jours de la semaine
+    // create a tab for convert week days
     function days(day)
     {
         const daysTab = ["L", "M", "M", "J", "V", "S", "D"]
         return daysTab[+day -1];
     }
 
-    // tant qu'on à pas récupéré les données
+    // if datas not loaded
     if(isLoading === true)
     {
         return (
             <div className="line-box rounded mb-4">
+
                 <Loader />
+
             </div>
         )
     }
@@ -82,14 +80,31 @@ function LineAnalytic({ id })
 
                 <h4 className='average-session-title'>Durée moyenne des sessions</h4>
 
-                <ResponsiveContainer width="100%" height="100%">
+                <ResponsiveContainer width="100%" height="100%" className='sessions-responsive' >
 
                     <LineChart
-                        width={400}
                         height={100}
-                        margin={{ top: 60, right: 10, bottom: 0, left: 10 }}
+                        margin={{ top: 70, right: 10, bottom: 0, left: 10 }}
                         data={average.sessions}
+
+                        onMouseMove={(e) => {
+                            const zoneDark = document.getElementsByClassName('sessions-responsive')[0]
+                     
+                            if (e.isTooltipActive)
+                            {
+                                const windowWidth = zoneDark.clientWidth
+
+                                const mouseXpercentage = Math.round((e.activeCoordinate.x / windowWidth) * 100)
+
+                                zoneDark.style.background = `linear-gradient(to right, rgba(255,0,0,1) ${mouseXpercentage}%, rgba(0,0,0,0.1) ${mouseXpercentage}%, rgba(0,0,0,0.1) 100%)`
+                            }
+                            else
+                            {
+                                zoneDark.style.background = `rgba(255,0,0,1)`
+                            }
+                        }}
                     >
+
                         <XAxis
                             dataKey="day"
                             tickFormatter={days}
@@ -127,6 +142,7 @@ function LineAnalytic({ id })
 }
 
 export default LineAnalytic
+
 
 LineAnalytic.propTypes = {
     id: PropTypes.string.isRequired

@@ -6,7 +6,10 @@ export default class User
 {
     /**
      * @property {string|null} id
-     * 
+     * @param { Object } data.userInfos
+     * @param { Number } data.todayScore
+     * @param { Number } data.score 
+     * @param { Object } data.keyData
      */
     constructor (data)
     {

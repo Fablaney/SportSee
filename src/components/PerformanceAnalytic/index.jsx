@@ -1,43 +1,39 @@
 // import react
 import React, {useState, useEffect} from 'react'
-
-// lecture des données
-import axios from 'axios'
+import PropTypes from 'prop-types'
 
 // import Recharts
-import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer } from 'recharts'
+import { Radar, RadarChart, PolarGrid, PolarAngleAxis, ResponsiveContainer } from 'recharts'
 
 // import perso
 import "./style.scss"
 import Loader from '../Loader'
+import { fetchPerformance } from '../../api/api'
+import UserPerformances from '../../models/performance'
 
 /**
  * @component
  * @description Render of the performances in the Radar Chart
  * @function PerformanceAnalytic
- * @param {*}
+ * @param {string} id
  * @returns {jsx}
  */
 function PerformanceAnalytic({ id })
 {
-    // j'initialise un state data et state data met à jour datas
+    // initialize a state data and state loading and get the datas
     const [performance, setDatas] = useState({})
 
     const [isLoading, setLoading] = useState(true)
 
     useEffect(()=> {
-        axios.get('http://localhost:3000/user/'+ id +'/performance').then( function(response)
-        {
-            // console.log(response.data.data)
 
-            setDatas({...response.data.data})
+        fetchPerformance(id).then((response)=> {
 
-            // console.log(performance)
+            setDatas(new UserPerformances(response.data.data))
 
             setLoading(false)
-
-            // console.log(isLoading)
         })
+
     }, [])
 
     /**
@@ -46,7 +42,7 @@ function PerformanceAnalytic({ id })
      * @param {*} kind 
      * @returns 
      */
-    // je créer un tableau pour les kinds
+    // create kind tab for convert the indexs in words
     function kinds(kind)
     {
         const kindsTab = [  'cardio',
@@ -58,7 +54,8 @@ function PerformanceAnalytic({ id })
         ]
         return kindsTab[+kind -1];
     }
- 
+
+    // if the datas not loaded
     if( isLoading === true )
     {
         return(
@@ -67,11 +64,14 @@ function PerformanceAnalytic({ id })
             </div>
         )
     }
+    // if all OK
     else
     {
-        return(
+        return (
             <div className="radar-box rounded mb-4">
+
                 <ResponsiveContainer width="100%" height="100%">
+                    
                     <RadarChart
                         cx="50%"
                         cy="50%"
@@ -108,3 +108,7 @@ function PerformanceAnalytic({ id })
 }
 
 export default PerformanceAnalytic
+
+PerformanceAnalytic.propTypes = {
+    id: PropTypes.string.isRequired
+}

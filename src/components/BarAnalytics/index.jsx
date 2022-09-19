@@ -15,12 +15,12 @@ import UserActivity from '../../models/activity'
  * @component
  * @description Render of the activity in Bar Chart
  * @function BarAnalytics
- * @param {*}
+ * @param {string} id
  * @returns {jsx}
  */
 function BarAnalytics({ id })
 {
-    // j'initialise un state data et state data met à jour datas
+    // initialize a state data and state loading and get the datas
     const [activity, setDatas] = useState({})
 
     const [isLoading, setLoading] = useState(true)
@@ -35,8 +35,6 @@ function BarAnalytics({ id })
         })
 
     }, [])
-
-    console.log(activity)
 
     /**
      * @component
@@ -57,78 +55,84 @@ function BarAnalytics({ id })
         }
         return null
     }
-    // tant qu'on à pas récupéré les données
+
+    // if the datas not loaded
     if(isLoading === true)
     {
         return (
             <div className="bar-box">
+
                 <Loader />
+
             </div>
         )
     }
     // if all OK
-    return (     
-        <div className="bar-box">
-            {
-                isLoading === true ? <div className="chargement">Chargement</div>
-                :
-                <ResponsiveContainer width="100%" height="100%">
-                    <BarChart
-                        width='50%'
-                        height='50%'
-                        data={activity.sessions}
-                        margin={{
-                            top: 40,
-                            right: 10,
-                            left: 10,
-                            bottom: 10,
-                        }}
-                    >
-                        <CartesianGrid strokeDasharray="3 3" />
+    else
+    {
+        return (     
+            <div className="bar-box">
+            
+                    <ResponsiveContainer width="100%" height="100%">
 
-                        <XAxis dataKey="" />
+                        <BarChart
+                            width='50%'
+                            height='50%'
+                            data={activity.sessions}
+                            margin={{
+                                top: 40,
+                                right: 10,
+                                left: 10,
+                                bottom: 10,
+                            }}
+                        >
+                            <CartesianGrid strokeDasharray="3 3" />
 
-                        <YAxis
-                            yAxisId='kg'
-                            datakey='kilogram'
-                            orientation='right'
-                            axisLine={false}
-                            tickLine={false}
-                            tickCount={3}
-                        />
+                            <XAxis dataKey="day" />
 
-                        <YAxis
-                            yAxisId='cal'
-                            datakey='calories'
-                            orientation='false'
-                            axisLine={false}
-                            tickLine={false}
-                            hide={true}
-                        />
-                    
-                        <Tooltip content={<CustomTooltipActivity />} />
+                            <YAxis
+                                yAxisId='kg'
+                                datakey='kilogram'
+                                orientation='right'
+                                axisLine={false}
+                                tickLine={false}
+                                tickCount={3}
+                            />
 
-                        <Bar
-                            className='activity-bars'
-                            dataKey="kilogram"
-                            barSize={7}
-                            radius={[50, 50, 0, 0]}
-                            yAxisId='kg'
-                            fill="#282D30"/>
-                        <Bar
-                            className='activity-bars'
-                            dataKey="calories"
-                            barSize={7}
-                            radius={[50, 50, 0, 0]}
-                            yAxisId='cal'
-                            fill="#E60000" />
+                            <YAxis
+                                yAxisId='cal'
+                                datakey='calories'
+                                orientation='false'
+                                axisLine={false}
+                                tickLine={false}
+                                hide={true}
+                            />
+                        
+                            <Tooltip content={<CustomTooltipActivity />} />
 
-                    </BarChart>
-                </ResponsiveContainer>
-            }
-              
-        </div>
-    )
+                            <Bar
+                                className='activity-bars'
+                                dataKey="kilogram"
+                                barSize={7}
+                                radius={[50, 50, 0, 0]}
+                                yAxisId='kg'
+                                fill="#282D30"/>
+                            <Bar
+                                className='activity-bars'
+                                dataKey="calories"
+                                barSize={7}
+                                radius={[50, 50, 0, 0]}
+                                yAxisId='cal'
+                                fill="#E60000" />
+
+                        </BarChart>
+
+                    </ResponsiveContainer>
+                
+                
+            </div>
+        )
+    }  
 }
 
 export default BarAnalytics

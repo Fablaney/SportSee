@@ -5,8 +5,9 @@
 export default class UserPerformances
 {
     /**
-     * @property {string|null} id
-     * 
+     * @property {string|null} data.userId
+     * @param { Array.<Object> } data.kind
+     * @param { Array.<Object> } data.data
      */
     constructor (data)
     {
@@ -15,10 +16,11 @@ export default class UserPerformances
 
         this.kind = data.kind;
 
-        this.data = {
-            value: data.data.value,
-            kind: data.data.kind,
-        }
+        this.data = data.data.map((data) => ({
+            value: data.value,
+            kind: data.kind,
+        }));
 
     }
+
 }

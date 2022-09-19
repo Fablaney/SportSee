@@ -1,60 +1,57 @@
 // import react
 import React, {useState, useEffect} from 'react'
-
-// lecture des données
-import axios from 'axios'
+import PropTypes from 'prop-types'
 
 // import Recharts
-import { PieChart, Pie, Sector, Cell, ResponsiveContainer, Label } from 'recharts';
+import { PieChart, Pie, Cell, ResponsiveContainer } from 'recharts';
 
 // import perso
 import "./style.scss"
-import Loader from '../Loader';
+import Loader from '../Loader'
+import { fetchUsermainDatas } from '../../api/api'
+import User from '../../models/user';
 
 /**
  * @component
  * @description Render of the score in Pie Chart
  * @function PieAnalytics
- * @param {*}
+ * @param {string} id
  * @returns {jsx}
  */
-function PieAnalytics({id})
+function PieAnalytics({ id })
 {
-    // j'initialise un state data et state data met à jour datas
+    // initialize a state data and state loading and get the datas
     const [userDatas, setDatas] = useState({})
-
+    
     const [isLoading, setLoading] = useState(true)
 
     useEffect(()=> {
-        axios.get('http://localhost:3000/user/'+ id).then( function(response)
-        {
-            // console.log(response.data.data)
 
-            setDatas({...response.data.data})
+        fetchUsermainDatas(id).then((response)=> {
 
-            // console.log(userDatas)
+            setDatas(new User(response.data.data))
 
             setLoading(false)
-
-            // console.log(isLoading)
         })
+
     }, [])
 
-    // je récupere le score et je sort un % de 0 à 100
+    // get the score and out the % between 0 and 100
     let score = userDatas.score * 100 || userDatas.todayScore * 100
 
-    // je crée l'opposé du score de 100 à 0
+    // create difference between score and 100, ex: 100 - score 30 = antiscore = 70
     let antiScore = 100 - score
   
-    // je crée un tableau avec le % de l'utilisateur et sa différence
+    // create tab with score and difference between 100
     const data = [
         { name: "Group A", value: score },
         { name: "Group B", value: antiScore }
       ]
 
-    // couleur rouge et couleur gris clair
+    // color red and smoke
     const COLORS = ["#FF0000", "#FBFBFB"]
 
+    // if the datas not loaded
     if(isLoading == true)
     {
         return (
@@ -65,6 +62,7 @@ function PieAnalytics({id})
             </div>
         )
     }
+    // if all OK
     else
     {
         return (
@@ -110,10 +108,14 @@ function PieAnalytics({id})
                     </PieChart>
 
                 </ResponsiveContainer>
+
             </div>
         )
     }
-   
 }
 
 export default PieAnalytics
+
+PieAnalytics.propTypes = {
+    id: PropTypes.string.isRequired
+}
