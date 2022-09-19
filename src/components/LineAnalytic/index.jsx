@@ -80,13 +80,13 @@ function LineAnalytic({ id })
 
                 <h4 className='average-session-title'>Durée moyenne des sessions</h4>
 
-                <ResponsiveContainer width="100%" height="100%" className='sessions-responsive' >
+                <ResponsiveContainer width="100%" height="100%" className='sessions-responsive rounded' >
 
                     <LineChart
                         height={100}
                         margin={{ top: 70, right: 10, bottom: 0, left: 10 }}
                         data={average.sessions}
-
+                        // background darkest on right
                         onMouseMove={(e) => {
                             const zoneDark = document.getElementsByClassName('sessions-responsive')[0]
                      
